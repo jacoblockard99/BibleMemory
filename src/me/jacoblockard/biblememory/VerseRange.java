@@ -23,7 +23,7 @@ public class VerseRange {
      * @param endVerse   The Verse to end the range with.
      * @throws IOException if an IO error occurs.
      */
-    public VerseRange(Verse startVerse, Verse endVerse) throws IOException {
+    public VerseRange(Verse startVerse, Verse endVerse) {
         setStartVerse(startVerse);
         setEndVerse(endVerse);
     }
