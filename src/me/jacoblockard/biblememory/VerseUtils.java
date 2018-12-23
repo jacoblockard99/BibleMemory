@@ -94,7 +94,7 @@ public class VerseUtils {
      * @return True if the given verse is "valid".
      */
     public static boolean isVerseValid(Verse verse) {
-        return  verse.getVerseNumber() > 0 &&
+        return verse.getVerseNumber() > 0 &&
                 verse.getChapterNumber() > 0 &&
                 bibleInfo.bookExists(verse.getBook()) &&
                 verse.getChapterNumber() <= bibleInfo.getBookLength(verse.getBook()) &&

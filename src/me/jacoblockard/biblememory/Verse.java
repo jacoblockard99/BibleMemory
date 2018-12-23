@@ -1,7 +1,5 @@
 package me.jacoblockard.biblememory;
 
-import java.io.IOException;
-
 /**
  * Represents a single bible verse by book, chapter, and verse number.
  */
