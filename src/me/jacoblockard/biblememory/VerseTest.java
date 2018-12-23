@@ -10,36 +10,8 @@ import static org.junit.jupiter.api.Assertions.*;
 public class VerseTest {
     @Test
     void testConstructor() {
-        // Invalid book
-        assertThrows(IllegalArgumentException.class, () -> new Verse("A Random Book", 6, 7));
-
-        // Invalid chapter
-        assertThrows(IllegalArgumentException.class, () -> new Verse("Genesis", 51, 7));
-
-        // Invalid verse
-        assertThrows(IllegalArgumentException.class, () -> new Verse("Genesis", 6, 23));
-
         // Valid verse
         new Verse("Genesis", 2, 4);
-    }
-
-    @Test
-    void testAccessors() {
-        Verse verse;
-
-        verse = new Verse("Genesis", 1, 1);
-
-        // Invalid book
-        assertThrows(IllegalArgumentException.class, () -> verse.setBook("A Random Book"));
-        assertEquals("Genesis", verse.getBook());
-
-        // Invalid chapter
-        assertThrows(IllegalArgumentException.class, () -> verse.setChapterNumber(51));
-        assertEquals(1, verse.getChapterNumber());
-
-        // Invalid verse
-        assertThrows(IllegalArgumentException.class, () -> verse.setVerseNumber(32));
-        assertEquals(1, verse.getVerseNumber());
     }
 
     @Test
