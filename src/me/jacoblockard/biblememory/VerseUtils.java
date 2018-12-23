@@ -33,6 +33,10 @@ public class VerseUtils {
         Verse minVerse, maxVerse;
         int distance, sign, diff, chapterLength;
 
+        if (!(isVerseValid(verse1) && isVerseValid(verse2))) {
+            throw new IllegalArgumentException("Both verses must be valid!");
+        }
+
         if (!verse1.getBook().equals(verse2.getBook())) {
             throw new IllegalArgumentException("The two verses are not in the same book!");
         }
@@ -79,5 +83,21 @@ public class VerseUtils {
         }
 
         return distance * sign;
+    }
+
+    /**
+     * Returns true if the given verse is "valid". A valid verse is a verse whose book exists in the bible, whose
+     * chapter number is not greater than the length of the verse's book, and whose verse number is not greater than the
+     * length of the verse's chapter. A verse in also invalid if it has a negative verse or chapter number.
+     *
+     * @param verse The verse to validate.
+     * @return True if the given verse is "valid".
+     */
+    public static boolean isVerseValid(Verse verse) {
+        return  verse.getVerseNumber() > 0 &&
+                verse.getChapterNumber() > 0 &&
+                bibleInfo.bookExists(verse.getBook()) &&
+                verse.getChapterNumber() <= bibleInfo.getBookLength(verse.getBook()) &&
+                verse.getVerseNumber() <= bibleInfo.getChapterLength(verse.getBook(), verse.getChapterNumber());
     }
 }
